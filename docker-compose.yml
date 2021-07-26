@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   NameCheap_DDNS:
-    image: namecheapddns
+    image: wildactual/namecheap_ddns
     restart: unless-stopped
     env_file:
       - .env

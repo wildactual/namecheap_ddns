@@ -1,0 +1,6 @@
+version: "3.9"
+services:
+  NameCheap_DDNS:
+    image: namecheapddns
+    env_file:
+      - .env

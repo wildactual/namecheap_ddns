@@ -1,0 +1,2 @@
+# namecheap_ddns
+ 

@@ -12,7 +12,7 @@ API_KEY = environ.get('API_KEY')
 DOMAIN = environ.get('DOMAIN')
 SUBDOMAINS = environ.get('SUBDOMAINS')
 NAMECHEAP_URL = 'https://dynamicdns.park-your-domain.com/update?host='
-IP_URL = 'http://ipconfig.io/json'
+IP_URL = 'http://api.myip.com'
 
 
 # Get global ip address from api
@@ -20,8 +20,7 @@ def get_ip(logger):
 	try:
 		r = get(IP_URL)
 		if r.status_code == 200:
-			r_dic = loads(r.content.decode('UTF-8'))
-			return r_dic['ip']
+			return r.json()['ip']
 		if r.status_code != 200:
 			logger.info(f'Connection Error to {IP_URL} {r.status_code}')
 	except Exception as e:

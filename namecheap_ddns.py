@@ -11,7 +11,7 @@ API_KEY = environ.get('API_KEY')
 DOMAIN = environ.get('DOMAIN')
 SUBDOMAINS = environ.get('SUBDOMAINS')
 NAMECHEAP_URL = 'https://dynamicdns.park-your-domain.com/update?host='
-IP_URL = 'https://api.myip.com'
+IP_URL ='https://api.my-ip.io/ip.json'
 
 
 logging.basicConfig(
@@ -65,7 +65,7 @@ if __name__ == '__main__':
     while True:
         ip = get_global_ip()
         if ip == None:
-            logging.error(f'Could not contact {IP_URL.strip("http://")}')
+            logging.error(f'Could not contact {IP_URL.strip("https://")}')
         elif ip != None:
             subdomains = SUBDOMAINS.split(',')
             for subdomain in subdomains:

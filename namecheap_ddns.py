@@ -11,7 +11,7 @@ API_KEY = environ.get('API_KEY')
 DOMAIN = environ.get('DOMAIN')
 SUBDOMAINS = environ.get('SUBDOMAINS')
 NAMECHEAP_URL = 'https://dynamicdns.park-your-domain.com/update?host='
-IP_URL = 'http://api.myip.com'
+IP_URL = 'https://api.myip.com'
 
 
 logging.basicConfig(

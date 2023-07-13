@@ -11,7 +11,7 @@ API_KEY = environ.get('API_KEY')
 DOMAIN = environ.get('DOMAIN')
 SUBDOMAINS = environ.get('SUBDOMAINS')
 NAMECHEAP_URL = 'https://dynamicdns.park-your-domain.com/update?host='
-IP_URL ='https://api.my-ip.io/ip.json'
+IP_URL ='http://checkip.amazonaws.com'
 
 
 logging.basicConfig(
@@ -36,7 +36,7 @@ def get_global_ip():
             count += 1
             response = requests.get(IP_URL)
             if response.status_code == 200:
-                return response.json()['ip']
+                return response.content.decode('UTF-8')
             else:
                 sleep(1)
         except:

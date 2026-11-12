@@ -1,8 +1,12 @@
-version: "3.3"
 services:
   NameCheap_DDNS:
     container_name: namecheap_ddns
     image: wildactual/namecheap_ddns:latest
+    build: .
     restart: unless-stopped
     env_file:
       - .env
+    environment:
+      LOG_RETENTION_DAYS: ${LOG_RETENTION_DAYS:-14}
+    volumes:
+      - ./logs:/logs
